@@ -20,10 +20,10 @@ export const validateCard = (
     //This prevents the service from processing invalid data and provides clear feedback to the client about what went wrong.
     //This is important for security and robustness, as it helps to prevent potential issues that could arise from malformed input.
     //Sends structured error response
-    if (typeof cardNumber !== "string") {
+    if (!cardNumber || typeof cardNumber !== "string") {
       return res.status(400).json({
         error: "Invalid input",
-        details: "cardNumber must be a string",
+        details: "cardNumber must be a non-empty string",
       });
     }
 
