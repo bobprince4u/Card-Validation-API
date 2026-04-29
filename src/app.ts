@@ -32,20 +32,4 @@ app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
   res.status(500).json({ message: "internal server error!" });
 });
 
-//Uses environment variable if available.
-//Falls back to port 5000 if not specified.
-//const PORT = process.env.PORT || 5000;
-//app.listen(PORT, () => {
-//console.log(`Server is running on port ${PORT}`);
-//});
-
 export default app;
-
-//
-if (process.env.NODE_ENV === "test") {
-  const PORT = process.env.PORT || 5001; // Use a different port for testing
-
-  app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
-  });
-}
