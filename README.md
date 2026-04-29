@@ -91,6 +91,17 @@ npm test
 }
 ```
 
+## Live Demo
+
+Base URL:
+https://your-app-name.onrender.com
+
+Example request:
+
+curl -X POST https://your-app-name.onrender.com/api/v1/cards/validate \
+-H "Content-Type: application/json" \
+-d '{"cardNumber":"4242424242424242"}'
+
 ---
 
 ## Validation Approach
