@@ -1,5 +1,7 @@
 import express, { Application, Request, Response, NextFunction } from "express";
 import cardRoutes from "./routes/card.routes";
+import { errorHandler } from "./middlewares/errorHandler";
+import { error } from "node:console";
 
 // Create an instance of the Express application
 const app: Application = express();
@@ -14,6 +16,12 @@ app.get("/", (req: Request, res: Response) => {
 
 //mount the card routes
 app.use("/api/v1/cards", cardRoutes);
+
+// Global error handling middleware.
+//Catches any unhandled errors that occur during request processingo.
+//Prevents app crashes.
+//Sends consistent error response.
+app.use(errorHandler);
 
 // Global error handling middleware.
 //Catches any unhandled errors that occur during request processingo.
